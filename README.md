@@ -1,4 +1,4 @@
-# Arcade Spacship controller in Godot
+# Arcade-style Spaceship controller in Godot
 
 This is the Godot project for the tutorial found here:
 
