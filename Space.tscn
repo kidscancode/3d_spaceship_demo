@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ExecutionerKB.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Camera.gd" type="Script" id=2]
+[ext_resource path="res://assets/Stars Sphere.jpg" type="Texture" id=3]
+[ext_resource path="res://Space.gd" type="Script" id=4]
+[ext_resource path="res://assets/ultimate spaceships - may 2021/Imperial.gltf" type="PackedScene" id=5]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 3 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_sky_contribution = 0.0
+glow_enabled = true
+glow_strength = 1.41
+
+[node name="Space" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="ChaseCamera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.61399, 9.07805 )
+current = true
+far = 500.0
+script = ExtResource( 2 )
+target_path = NodePath("../ExecutionerKB")
+offset = Vector3( 0, 5, 10 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="FixedCamera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123564, 4.91353, 12.5877 )
+current = true
+far = 500.0
+
+[node name="Imperial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 11.323, -3.97349, 0, 3.97349, 11.323, 0, 0, 0, 12, 259.626, 0, 0 )
+
+[node name="ExecutionerKB" parent="." instance=ExtResource( 1 )]
