@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/DST-RailJet [qubodup short-cut loop].ogg-e6e39926667b91e7744b7c242a615759.oggstr"
+
+[deps]
+
+source_file="res://assets/DST-RailJet [qubodup short-cut loop].ogg"
+dest_files=[ "res://.import/DST-RailJet [qubodup short-cut loop].ogg-e6e39926667b91e7744b7c242a615759.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

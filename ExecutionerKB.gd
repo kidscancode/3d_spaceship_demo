@@ -5,7 +5,7 @@ export var max_speed = 50
 export var acceleration = 0.6
 export var pitch_speed = 1.5
 export var roll_speed = 1.9
-export var yaw_speed = 1.25
+export var yaw_speed = 0.75
 export var input_response = 8.0
 
 var velocity = Vector3.ZERO
@@ -17,7 +17,7 @@ var can_shoot = true
 
 
 func _ready():
-#	Debug.stats.add_property(self, "velocity", "length")
+	Debug.stats.add_property(self, "velocity", "length")
 	$ThrustLeft.emitting = true
 	$ThrustRight.emitting = true
 
@@ -34,18 +34,21 @@ func get_input(delta):
 	roll_input = lerp(roll_input,
 			Input.get_action_strength("roll_left") - Input.get_action_strength("roll_right"),
 			input_response * delta)
-	yaw_input = lerp(yaw_input,
-			Input.get_action_strength("yaw_left") - Input.get_action_strength("yaw_right"), 
-			input_response * delta)
+#	yaw_input = lerp(yaw_input,
+#			Input.get_action_strength("yaw_left") - Input.get_action_strength("yaw_right"), 
+#			input_response * delta)
+	yaw_input = roll_input
 
 	if Input.is_action_pressed("shoot") and can_shoot:
 		can_shoot = false
 		$Timer.start()
+		AudioManager.play("res://assets/sfx_07b.ogg")
 		for gun in $Guns.get_children():
 			var b = Bullet.instance()
 			owner.add_child(b)
 			b.global_transform = gun.global_transform
 			b.speed += velocity.length()
+			
 
 
 func _physics_process(delta):
