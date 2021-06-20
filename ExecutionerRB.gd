@@ -22,6 +22,7 @@ func get_input(delta):
 	roll_input = Input.get_action_strength("roll_right") - Input.get_action_strength("roll_left")
 	pitch_input = Input.get_action_strength("pitch_up") - Input.get_action_strength("pitch_down")
 	yaw_input = Input.get_action_strength("yaw_left") - Input.get_action_strength("yaw_right")
+#	yaw_input = roll_input
 	
 func _integrate_forces(state):
 	get_input(state.step)

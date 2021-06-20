@@ -39,12 +39,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123564, 4.91353, 12.5877 )
 current = true
 far = 500.0
 
-[node name="ExecutionerKB" parent="." instance=ExtResource( 1 )]
-
 [node name="Imperial" parent="." instance=ExtResource( 5 )]
 transform = Transform( 12, 0, 0, 0, 12, 0, 0, 0, 12, 307.117, -3.05176e-05, -20.94 )
 
+[node name="Imperial" parent="Imperial" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000238419, 0, 0.0145531 )
+
 [node name="CollisionShape" type="CollisionShape" parent="Imperial"]
+transform = Transform( 0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0 )
 shape = SubResource( 3 )
+
+[node name="ExecutionerKB" parent="." instance=ExtResource( 1 )]
 
 [editable path="Imperial"]

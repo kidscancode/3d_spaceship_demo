@@ -18,6 +18,8 @@ var can_shoot = true
 
 func _ready():
 	Debug.stats.add_property(self, "velocity", "length")
+	$Executioner.material_override = $Executioner.get_active_material(0).duplicate()
+#	$Executioner.set_surface_material(1, $Executioner.get_surface_material(1).duplicate())
 	$ThrustLeft.emitting = true
 	$ThrustRight.emitting = true
 

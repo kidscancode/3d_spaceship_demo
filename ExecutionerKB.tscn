@@ -52,6 +52,7 @@ shape = SubResource( 1 )
 
 [node name="ThrustRight" type="Particles" parent="." index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.941484, -0.156281, 2.80957 )
+emitting = false
 amount = 50
 lifetime = 0.1
 process_material = SubResource( 6 )
@@ -59,6 +60,7 @@ draw_pass_1 = SubResource( 8 )
 
 [node name="ThrustLeft" type="Particles" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.941231, -0.156281, 2.80957 )
+emitting = false
 amount = 50
 lifetime = 0.1
 process_material = SubResource( 6 )
