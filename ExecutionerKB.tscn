@@ -1,78 +1,77 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=11 format=3 uid="uid://xlxk8ii5kx8k"]
 
-[ext_resource path="res://assets/ultimate spaceships - may 2021/Executioner.gltf" type="PackedScene" id=1]
-[ext_resource path="res://ExecutionerKB.gd" type="Script" id=2]
+[ext_resource type="PackedScene" uid="uid://c21qwxoro77l1" path="res://assets/ultimate_spaceships/Executioner.gltf" id="1"]
+[ext_resource type="Script" path="res://ExecutionerKB.gd" id="2"]
 
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 1.44916, 0.717096, 3.90798 )
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(1.44916, 0.717096, 3.90798)
 
-[sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0, 0.989011 )
-colors = PoolColorArray( 0.0319561, 0.49402, 0.807617, 1, 1, 1, 1, 0 )
+[sub_resource type="Gradient" id="2"]
+offsets = PackedFloat32Array(0, 0.989011)
+colors = PackedColorArray(0.0319561, 0.49402, 0.807617, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture2D" id="3"]
+gradient = SubResource("2")
 
-[sub_resource type="Curve" id=4]
-_data = [ Vector2( 0.00117925, 1 ), 0.0, 0.916631, 0, 0, Vector2( 1, 0.738267 ), -2.04092, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="4"]
+_data = [Vector2(0.00117925, 1), 0.0, 0.916631, 0, 0, Vector2(1, 0.738267), -2.04092, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
+[sub_resource type="CurveTexture" id="5"]
+curve = SubResource("4")
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticleProcessMaterial" id="6"]
 emission_shape = 1
 emission_sphere_radius = 0.25
-direction = Vector3( 0, 0, 1 )
+direction = Vector3(0, 0, 1)
 spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 20.0
-radial_accel = -100.0
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("5")
+color_ramp = SubResource("3")
 
-[sub_resource type="SpatialMaterial" id=7]
-flags_transparent = true
-flags_unshaded = true
+[sub_resource type="StandardMaterial3D" id="7"]
+transparency = 1
+shading_mode = 0
 vertex_color_use_as_albedo = true
 
-[sub_resource type="SphereMesh" id=8]
-material = SubResource( 7 )
+[sub_resource type="SphereMesh" id="8"]
+material = SubResource("7")
 radius = 0.1
 height = 0.2
 
-[node name="ExecutionerKB" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="ExecutionerKB" instance=ExtResource("1")]
+script = ExtResource("2")
 
-[node name="Executioner" parent="." index="0"]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0 )
+[node name="Executioner2" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.46631 )
-shape = SubResource( 1 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.46631)
+shape = SubResource("1")
 
-[node name="ThrustRight" type="Particles" parent="." index="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.941484, -0.156281, 2.80957 )
+[node name="ThrustRight" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.941484, -0.156281, 2.80957)
 emitting = false
 amount = 50
 lifetime = 0.1
-process_material = SubResource( 6 )
-draw_pass_1 = SubResource( 8 )
+process_material = SubResource("6")
+draw_pass_1 = SubResource("8")
 
-[node name="ThrustLeft" type="Particles" parent="." index="3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.941231, -0.156281, 2.80957 )
+[node name="ThrustLeft" type="GPUParticles3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.941231, -0.156281, 2.80957)
 emitting = false
 amount = 50
 lifetime = 0.1
-process_material = SubResource( 6 )
-draw_pass_1 = SubResource( 8 )
+process_material = SubResource("6")
+draw_pass_1 = SubResource("8")
 
-[node name="Guns" type="Spatial" parent="." index="4"]
+[node name="Guns" type="Node3D" parent="." index="4"]
 
-[node name="MuzzleLeft" type="Position3D" parent="Guns" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77109, -0.00345607, -0.159802 )
+[node name="MuzzleLeft" type="Marker3D" parent="Guns" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77109, -0.00345607, -0.159802)
 
-[node name="MuzzleRight" type="Position3D" parent="Guns" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77547, 0.0224721, -0.16 )
+[node name="MuzzleRight" type="Marker3D" parent="Guns" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77547, 0.0224721, -0.16)
 
 [node name="Timer" type="Timer" parent="." index="5"]
 wait_time = 0.1

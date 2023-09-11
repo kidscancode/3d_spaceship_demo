@@ -1,13 +1,13 @@
 extends CanvasLayer
 
-onready var draw = $DebugDraw3D
-onready var stats = $DebugStats
+@onready var draw = $DebugDraw3D
+@onready var stats = $DebugStats
 
 func _ready():
 	if not InputMap.has_action("toggle_debug"):
 		InputMap.add_action("toggle_debug")
 		var ev = InputEventKey.new()
-		ev.scancode = KEY_BACKSLASH
+		ev.keycode = KEY_BACKSLASH
 		InputMap.action_add_event("toggle_debug", ev)
 
 func _input(event):

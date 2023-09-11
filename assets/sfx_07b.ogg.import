@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/sfx_07b.ogg-531f4426ed5966c99206f389217da878.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ta6ckeym07n0"
+path="res://.godot/imported/sfx_07b.ogg-531f4426ed5966c99206f389217da878.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/sfx_07b.ogg"
-dest_files=[ "res://.import/sfx_07b.ogg-531f4426ed5966c99206f389217da878.oggstr" ]
+dest_files=["res://.godot/imported/sfx_07b.ogg-531f4426ed5966c99206f389217da878.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -12,7 +12,7 @@ func _ready():
 		var p = AudioStreamPlayer.new()
 		add_child(p)
 		available.append(p)
-		p.connect("finished", self, "_on_stream_finished", [p])
+		p.connect("finished", Callable(self, "_on_stream_finished").bind(p))
 		p.bus = bus
 
 
@@ -23,13 +23,13 @@ func _on_stream_finished(stream):
 
 func play(sound_path):
 	queue.append(sound_path)
-	if available.empty():
+	if available.is_empty():
 		print("full")
 
 
 func _process(delta):
 	# Play a queued sound if any players are available.
-	if not queue.empty() and not available.empty():
+	if not queue.is_empty() and not available.is_empty():
 		available[0].stream = load(queue.pop_front())
 		available[0].play()
 		available.pop_front()

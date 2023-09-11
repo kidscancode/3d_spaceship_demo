@@ -1,0 +1,8 @@
+res://default_env.tres
+res://Space.tscn
+res://debug/DebugDraw3D.gd
+res://Space.gd
+res://ExecutionerKB.tscn
+res://ExecutionerKB.gd
+res://Camera.gd
+res://debug/DebugOverlay.tscn

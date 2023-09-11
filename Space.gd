@@ -1,11 +1,11 @@
-extends Spatial
+extends Node3D
 
-onready var cameras = [$ChaseCamera, $FixedCamera]
+@onready var cameras = [$ChaseCamera, $FixedCamera]
 var current_camera = 1
 
 func _ready():
 	AudioManager.play("res://assets/DST-RailJet [qubodup short-cut loop].ogg")
-	$Imperial/Imperial.get_active_material(0).albedo_texture = load("res://assets/ultimate spaceships - may 2021/Imperial_Red.png")
+	$Imperial/Imperial2.get_active_material(0).albedo_texture = load("res://assets/ultimate_spaceships/Imperial_Red.png")
 	
 func _process(delta):
 	$FixedCamera.look_at($ExecutionerKB.transform.origin, Vector3.UP)

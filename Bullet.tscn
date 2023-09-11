@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Bullet.gd" type="Script" id=1]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="StandardMaterial3D" id=1]
 flags_transparent = true
 flags_unshaded = true
 flags_do_not_receive_shadows = true
@@ -11,19 +11,19 @@ albedo_color = Color( 0.160784, 1.81961, 0.141176, 1 )
 [sub_resource type="CapsuleMesh" id=2]
 material = SubResource( 1 )
 radius = 0.3
-mid_height = 1.1
+height = 1.1
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape3D" id=3]
 radius = 0.05
 
-[node name="Bullet" type="Area"]
+[node name="Bullet" type="Area3D"]
 script = ExtResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]

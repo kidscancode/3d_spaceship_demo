@@ -22,7 +22,7 @@ class Property:
 				s += num_format % p.length()
 			"round":
 				match typeof(p):
-					TYPE_INT, TYPE_REAL:
+					TYPE_INT, TYPE_FLOAT:
 						s += num_format % p
 					TYPE_VECTOR2, TYPE_VECTOR3:
 						s += str(p.round())
@@ -32,7 +32,7 @@ var props = []
 
 func add_property(object, property, display):
 	var l = Label.new()
-	l.set("custom_fonts/font", load("res://debug/roboto_16.tres"))
+	l.set("theme_override_fonts/font", load("res://debug/roboto_16.tres"))
 	$Column.add_child(l)
 	props.append(Property.new(object, property, l, display))
 

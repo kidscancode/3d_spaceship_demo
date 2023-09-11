@@ -1,9 +1,9 @@
-extends Camera
+extends Camera3D
 
-export var lerp_speed = 3.0
+@export var lerp_speed = 3.0
 
-export (NodePath) var target_path = null
-export (Vector3) var offset = Vector3.ZERO
+@export var target_path: NodePath = "../ExecutionerKB"
+@export var offset: Vector3 = Vector3.ZERO
 var target = null
 
 func _ready():

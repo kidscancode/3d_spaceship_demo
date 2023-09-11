@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/DST-RailJet [qubodup short-cut loop].ogg-e6e39926667b91e7744b7c242a615759.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://70nq0ukqy3i1"
+path="res://.godot/imported/DST-RailJet [qubodup short-cut loop].ogg-e6e39926667b91e7744b7c242a615759.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/DST-RailJet [qubodup short-cut loop].ogg"
-dest_files=[ "res://.import/DST-RailJet [qubodup short-cut loop].ogg-e6e39926667b91e7744b7c242a615759.oggstr" ]
+dest_files=["res://.godot/imported/DST-RailJet [qubodup short-cut loop].ogg-e6e39926667b91e7744b7c242a615759.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

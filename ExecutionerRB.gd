@@ -1,10 +1,10 @@
-extends RigidBody
+extends RigidBody3D
 
 var max_speed = 45
 var acceleration = 0.5
-export var pitch_speed = 31.0
-export var roll_speed = 7.5
-export var yaw_speed = 20.0
+@export var pitch_speed = 31.0
+@export var roll_speed = 7.5
+@export var yaw_speed = 20.0
 
 var throttle = 0
 var pitch_input = 0
@@ -27,6 +27,6 @@ func get_input(delta):
 func _integrate_forces(state):
 	get_input(state.step)
 	linear_velocity = -transform.basis.z * throttle
-	add_torque(-transform.basis.z * roll_input * 7.5)
-	add_torque(transform.basis.x * pitch_input * 35.5)
-	add_torque(transform.basis.y * yaw_input * 20)
+	apply_torque(-transform.basis.z * roll_input * 7.5)
+	apply_torque(transform.basis.x * pitch_input * 35.5)
+	apply_torque(transform.basis.y * yaw_input * 20)
